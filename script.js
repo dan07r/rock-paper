@@ -1,14 +1,15 @@
 const rockPaperScissors = ["rock", "paper", "scissors"];
 
+let computerWins = 0;
+let userWins = 0;
 
+
+function game(){
 
 function getComputerChoice(){
 
     
     let pcChoice = rockPaperScissors[Math.floor(Math.random() * 3)];
-
-
-    console.log(pcChoice);
 
     return pcChoice;
 
@@ -30,16 +31,22 @@ if(rockPaperScissors.includes(userChoice)){
 
     if(userChoice == "rock" && pcChoice == "scissors"){
         alert("You won!");
+        userWins++;
     } else if( userChoice == "rock" && pcChoice == "paper"){
         alert("You won!");
+        userWins++;
     } else if(userChoice == "paper" && pcChoice == "scissors"){
         alert("You lost!");
+        computerWins++;
     } else if( userChoice == "paper" && pcChoice == "rock"){
         alert("You won!");
+        userWins++;
     } else if(userChoice == "scissors" && pcChoice == "rock"){
         alert("You lost!");
+        computerWins++;
     } else if( userChoice == "scissors" && pcChoice == "paper"){
         alert("You won!");
+        userWins++;
     } else {
         alert("its a tie!");
     }
@@ -51,3 +58,20 @@ if(rockPaperScissors.includes(userChoice)){
 }
 
 }while (checker < 1);
+
+}
+
+for (let i = 0; i < 5; i++){
+
+    game();
+
+
+}
+
+if(computerWins > userWins){
+    alert("sorry the computer won!")
+}else if(computerWins < userWins) {
+    alert("Yay! you won!");
+}else {
+    alert("Wow it was a tie!");
+}
